@@ -50,8 +50,8 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     // control of robot, output=input^3
     if(Math.abs(m_stick.getX()) >= 0.1 || Math.abs(m_stick.getY()) >= 0.1) {
-      RightMotors(Math.pow(m_stick.getX() - m_stick.getY(), 3));
-      LeftMotors(Math.pow(m_stick.getX() + m_stick.getY(), 3));
+      rightMotors(Math.pow(m_stick.getX() - m_stick.getY(), 3));
+      leftMotors(Math.pow(m_stick.getX() + m_stick.getY(), 3));
 
      
     }
@@ -60,12 +60,11 @@ public class Robot extends TimedRobot {
   @Override
   public void testPeriodic() {
   }
-  public void RightMotors(double x) {
-
+  public void rightMotors(double x) {
     mRightMaster.set(ControlMode.PercentOutput, x);
     mRightSlave.set(ControlMode.PercentOutput,x);
   }
-  public void LeftMotors(double x){
+  public void leftMotors(double x){
     mLeftMaster.set(ControlMode.PercentOutput, x); 
     mLeftSlave.set(ControlMode.PercentOutput,x);
   }
