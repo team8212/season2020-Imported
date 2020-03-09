@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.Joystick;
 
 //import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Timer;
 //import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.XboxController;
@@ -56,12 +57,17 @@ public class Robot extends TimedRobot {
   }
   @Override
   public void autonomousInit() {
-
+    
+   
   }
 
   @Override
   public void autonomousPeriodic() { 
-
+    Timer autoTimer = new Timer();
+    autoTimer.start();
+    if(autoTimer.get()<=5.0){
+      m_drive.curvatureDrive(0.25, 0,false);
+    }
   }
 
   @Override
